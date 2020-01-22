@@ -24,7 +24,10 @@ export class SearchService {
       .get(
         `${this.url}?s=${encodeURI(title)}&type=${type}&apikey=${this.apiKey}`
       )
-      .pipe(map(result => result['Search']));
+      .pipe(map(result => {
+        console.log('RAW ', result);
+        return result['Search'];
+      }));
   }
 
   getDetails(id) {
