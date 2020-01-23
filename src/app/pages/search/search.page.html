@@ -24,7 +24,7 @@
     <ion-item
       button
       *ngFor="let item of (results | async)"
-      (click)="openDetails(item.imdbID)"
+      (click)="openDetails(item.imdbID, item.Title, item.Year)"
     >
       <ion-avatar slot="start">
         <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'" />

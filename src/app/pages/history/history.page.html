@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>history</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>History</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list #myList>
 
+    <ion-list-header>
+      <ion-label>My history</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of history"
+
+  </ion-list>
 </ion-content>
