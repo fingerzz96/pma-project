@@ -1,5 +1,7 @@
 {
   "name": "pma-project",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
