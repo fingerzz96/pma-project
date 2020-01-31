@@ -33,16 +33,6 @@ const routes: Routes = [
               import('../history/history.module').then(m => m.HistoryPageModule)
           }
         ]
-      },
-      {
-        path: 'about',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../about/about.module').then(m => m.AboutPageModule)
-          }
-        ]
       }
     ]
   },

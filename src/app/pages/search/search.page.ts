@@ -44,7 +44,7 @@ export class SearchPage implements OnInit {
 
     this.historyService.addHistory(this.newHistory).then(item => {
       this.newHistory = {} as HistoryData;
-      this.historyService.loadItems(this.history);
+      this.historyService.loadItems();
     });
   }
 }

@@ -9,7 +9,7 @@ const HISTORY_KEY = 'my-history';
   providedIn: 'root'
 })
 export class HistoryService {
-  history: HistoryData[] = [];
+  historyData: HistoryData[] = [];
   newHistory: HistoryData = {} as HistoryData;
 
   constructor(private storage: Storage, private plt: Platform) {}
@@ -18,9 +18,11 @@ export class HistoryService {
 
   addHistory(history: HistoryData): Promise<any> {
     return this.storage.get(HISTORY_KEY).then((histories: HistoryData[]) => {
+      histories = this.historyData;
       if (history) {
         // tslint:disable-next-line: no-debugger
-        debugger;
+        // TODO: Fixing the error of histories returning null
+        console.log(histories);
         histories.push(history);
         return this.storage.set(HISTORY_KEY, histories);
       } else {
@@ -34,16 +36,15 @@ export class HistoryService {
     return this.storage.get(HISTORY_KEY);
   }
 
-  loadItems(data: any) {
+  loadItems() {
     this.getHistory().then(histories => {
-      data = this.history;
-      this.history = histories;
+      this.historyData = histories;
     });
   }
 
   readyPlatform() {
     this.plt.ready().then(() => {
-      this.loadItems(history);
+      this.loadItems();
     });
   }
 }

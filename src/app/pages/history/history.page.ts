@@ -9,15 +9,16 @@ import { HistoryData } from '../_models/history-data';
   styleUrls: ['./history.page.scss']
 })
 export class HistoryPage implements OnInit {
-  history: HistoryData[] = [];
-
-
+  display: Array<string> = new Array<string>();
   @ViewChild('mylist', { static: false }) mylist: IonList;
 
   constructor(private historyService: HistoryService) {
     this.historyService.readyPlatform();
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.historyService.getHistory().then(value => {
+      value = this.display;
+    });
+  }
 }

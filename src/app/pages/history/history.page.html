@@ -6,12 +6,17 @@
 
 <ion-content>
   <ion-list #myList>
-
     <ion-list-header>
       <ion-label>My history</ion-label>
     </ion-list-header>
 
-    <ion-item *ngFor="let item of history"
-
+    <ion-item *ngFor="let item of display">
+      <ion-label>
+        <h3>{{item.Title}}</h3>
+        <ion-text>
+          <p>{{item.Year}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
